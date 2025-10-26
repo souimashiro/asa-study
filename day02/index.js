@@ -6,13 +6,19 @@ function getRandomAlphabet() {
     for (let i = 0; i < 5; i++) {
         const randomIndex = Math.floor(Math.random() * alphabets.length);
         const randomChar = alphabets[randomIndex];
-        result += randomChar;
+        result += randomChar + (i < 4 ? ' ' : '');
     }
 
-    const wildCardIndex = Math.floor(Math.random() * 5);
-    result = result.substring(0, wildCardIndex) + '?' + result.substring(wildCardIndex + 1);
+     const shouldIncludeWildCard = Math.random() < 0.5;
 
-    return result;
+     if (!shouldIncludeWildCard) {
+         const wildCardIndex = Math.floor(Math.random() * 5);
+        const resultArr = result.split(' ');
+        resultArr[wildCardIndex] = '?';
+        return resultArr.join(' ');
+     }
+
+     return result;
 }
 
 console.log(getRandomAlphabet());
