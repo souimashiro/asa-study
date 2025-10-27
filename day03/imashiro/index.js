@@ -9,7 +9,25 @@ function getRandomAlphabet() {
         const randomChar = alphabets[randomIndex];
         result.push(randomChar);
     }
-    return result.join(' ');
+    return result;
 }
 
-    console.log(getRandomAlphabet());
+function countCharacters(arr) {
+    const countMap = {};
+
+    for (const char of arr) {
+        if (countMap[char]) {
+        countMap[char]++;
+        } else {
+        countMap[char] = 1;
+        }
+    }
+    
+    return countMap;
+}
+
+const randomAlphabets = getRandomAlphabet();
+console.log(randomAlphabets); 
+
+const counts = countCharacters(randomAlphabets);
+console.log(counts); 
