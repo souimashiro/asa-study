@@ -1,4 +1,5 @@
 const input = "a a b c c";
+const arr = input.split(" ");
 
 let found = -1;
 
